@@ -1,0 +1,81 @@
+/* Önder Bal Tek Sayfa Stili
+   Temayı logonuzun renklerine uyarlamak için aşağıdaki değişkenleri güncelleyin. */
+:root{
+  --primary: #c58b07;   /* bal altın */
+  --primary-ink: #3d2a00;
+  --bg: #fffdf7;
+  --text: #1c1c1c;
+  --muted: #6b6b6b;
+  --accent: #f1d27a;
+  --card: #ffffff;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+/* Container */
+.container{width:min(1120px, 92%); margin-inline:auto}
+
+.site-header{
+  position:sticky; top:0; z-index:1000;
+  background:rgba(255,255,255,.9); backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid #eee;
+}
+.header-inner{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+.brand{display:flex; gap:.6rem; align-items:center; text-decoration:none}
+.brand img{height:38px; width:auto}
+.brand-text{font-family:"Playfair Display", serif; font-weight:700; font-size:1.3rem; color:var(--primary-ink)}
+
+.nav-toggle{display:none; font-size:1.4rem; background:none; border:1px solid #ddd; border-radius:.5rem; padding:.3rem .6rem}
+.nav-list{display:flex; gap:1.1rem; list-style:none; margin:0; padding:0}
+.nav a{color:var(--text); text-decoration:none; font-weight:500}
+.nav a:hover{color:var(--primary)}
+
+/* Hero */
+.hero{position:relative; min-height:64vh; display:grid; place-items:center;}
+.hero-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.78)}
+.hero-content{position:relative; text-align:center; color:white; padding:4rem 0}
+.hero h1{font-family:"Playfair Display", serif; font-size:clamp(2rem, 4vw + 1rem, 3.2rem); margin:.5rem 0}
+.hero p{font-size:1.1rem; opacity:.95}
+.btn{display:inline-block; margin-top:1rem; background:var(--primary); color:#fff; padding:.8rem 1.1rem; border-radius:.6rem; text-decoration:none; font-weight:600}
+.btn:hover{filter:brightness(.95)}
+
+/* Sections */
+.section{padding:3.5rem 0}
+.section.alt{background:linear-gradient(180deg, #fff, #fff7e1 80%, #fff)}
+.section h2{font-family:"Playfair Display", serif; color:var(--primary-ink); font-size:clamp(1.4rem, 2.2vw + .8rem, 2.2rem)}
+.media img, .media video{width:100%; border-radius:.8rem; display:block; box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.grid.two{display:grid; grid-template-columns:1.1fr 1fr; gap:2rem; align-items:center}
+.spacer{height:2rem}
+.features{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem}
+.card{background:var(--card); padding:1rem; border-radius:.8rem; border:1px solid #f0e7c7}
+.card h3{margin-top:0; color:var(--primary-ink)}
+
+.bullets{columns:2; gap:2rem}
+.bullets li{margin-bottom:.4rem}
+.rich-text p{margin:.6rem 0}
+
+/* Footer */
+.footer{background:#0e0b05; color:#f4efe4; padding:2.4rem 0; border-top:4px solid var(--primary)}
+.footer-grid{display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center}
+.footer a{color:#ffe08a}
+.brand-col .brand-text{font-family:"Playfair Display", serif; font-size:1.4rem; display:block; margin-bottom:.4rem}
+
+/* Back to top */
+.to-top{position:fixed; right:1rem; bottom:1rem; border:none; background:var(--primary); color:#fff; width:44px; height:44px; border-radius:50%; cursor:pointer; box-shadow:0 8px 22px rgba(0,0,0,.18); display:none}
+
+/* Responsive */
+@media (max-width: 920px){
+  .grid.two{grid-template-columns:1fr;}
+  .features{grid-template-columns:1fr;}
+  .bullets{columns:1}
+  .nav-toggle{display:inline-block}
+  .nav-list{display:none; position:absolute; right:1rem; top:60px; background:#fff; border:1px solid #eee; border-radius:.6rem; padding:.8rem; flex-direction:column}
+  .nav-list.show{display:flex}
+}
